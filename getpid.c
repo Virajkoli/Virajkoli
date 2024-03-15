@@ -8,36 +8,36 @@
 #include <dirent.h>
 
 int main() {
-    // fork
+    
     pid_t pid = fork();
 
     if (pid < 0) {
         perror("Fork failed");
         exit(EXIT_FAILURE);
-    } else if (pid == 0) { // Child process
+    } else if (pid == 0) { 
         printf("Child process created with PID: %d\n", getpid());
 
-        // exec
+       
         char *args[] = {"/bin/ls", "-l", NULL};
         execv(args[0], args);
 
-        // This line will only execute if exec fails
+        
         perror("Exec failed");
         exit(EXIT_FAILURE);
-    } else { // Parent process
-        // wait
+    } else { 
+        
         int status;
         wait(&status);
         printf("Child process with PID %d exited with status %d\n", pid, status);
     }
 
-    // getpid
+    
     printf("Current process ID: %d\n", getpid());
 
-    // exit
+    
     exit(EXIT_SUCCESS);
 
-    // close
+    
     int fd = open("example.txt", O_RDONLY);
     if (fd == -1) {
         perror("Open failed");
@@ -48,7 +48,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    // stat
+    
     struct stat file_stat;
     if (stat("example.txt", &file_stat) == -1) {
         perror("Stat failed");
@@ -56,7 +56,7 @@ int main() {
     }
     printf("File size: %ld bytes\n", file_stat.st_size);
 
-    // opendir, readdir
+   
     DIR *dir;
     struct dirent *entry;
     dir = opendir(".");
