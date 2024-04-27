@@ -29,7 +29,7 @@ int main() {
         int status;
         wait(&status);
         printf("Child process with PID %d exited with status %d\n", pid, status);
-    }
+    
 
     
     printf("Current process ID: %d\n", getpid());
@@ -69,6 +69,7 @@ int main() {
         printf("%s\n", entry->d_name);
     }
     closedir(dir);
+    }
 
     return 0;
 }
