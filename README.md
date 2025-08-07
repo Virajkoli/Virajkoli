@@ -23,9 +23,3 @@
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
-Client ID
-Ov23liJDM6B9xuTvVtBa
-
-Client secret
- 01a1b0a5245ae5962397676c5b178193246513fe 
-
